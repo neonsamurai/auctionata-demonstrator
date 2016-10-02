@@ -1,5 +1,3 @@
-import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
 
-const Items = new Meteor.Collection('items');
-
-export default Items;
+export const Items = new Mongo.Collection('items');
