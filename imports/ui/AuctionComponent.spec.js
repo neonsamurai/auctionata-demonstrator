@@ -15,13 +15,13 @@ Factory.define('item', Items, {
 describe('Auction component', function(){
   const PRICE = 100;
   const auctionItem = Factory.build('item',{price: PRICE});
-  const item = shallow(<AuctionComponent item={auctionItem}/>);
+  const wrapper = shallow(<AuctionComponent item={auctionItem}/>);
 
   it('should by default render with current price = item price, highest bidder empty', function(){
-    expect(item.find('#currentPrice').text()).to.equal(PRICE.toString());
-    expect(item.find('#highestBidder').text()).to.be.empty;
+    expect(wrapper.find('#currentPrice').text()).to.equal(PRICE.toString());
+    expect(wrapper.find('#highestBidder').text()).to.be.empty;
   });
   it('should render an Item component', function(){
-    expect(item.find(ItemComponent)).to.have.length(1);
+    expect(wrapper.find(ItemComponent)).to.have.length(1);
   });
 });
