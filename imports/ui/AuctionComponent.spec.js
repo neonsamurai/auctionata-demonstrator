@@ -18,13 +18,10 @@ describe('Auction component', function(){
   const item = shallow(<AuctionComponent item={auctionItem}/>);
 
   it('should by default render with current price = item price, highest bidder empty', function(){
-
-
-
     expect(item.find('#currentPrice').text()).to.equal(PRICE.toString());
     expect(item.find('#highestBidder').text()).to.be.empty;
   });
   it('should render an Item component', function(){
-    expect(item.find(ItemComponent).length).to.equal(1);
+    expect(item.find(ItemComponent)).to.have.length(1);
   });
 });
