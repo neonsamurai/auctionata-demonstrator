@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Items } from '../imports/api/item/itemModel.js';
 import {Auctions} from '../imports/api/auction/auctionModel.js';
+import '../imports/api/auction/auctionMethods.js';
 import './fixtures.js';
 
 Meteor.startup(() => {

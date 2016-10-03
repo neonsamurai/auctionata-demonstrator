@@ -2,15 +2,15 @@ import React, {PropTypes} from 'react';
 import ItemComponent from './ItemComponent.jsx';
 import BiddingComponent from './BiddingComponent.jsx'
 
-const AuctionComponent = ({item, highestBidder}) => {
+const AuctionComponent = ({item, auction}) => {
     const bidHandler = function () {
-        Meteor.call('bid.place', item, Meteor.userId());
+        Meteor.call('bid.place', auction, Meteor.userId());
     }
     return (
         <div>
             <p id="currentPrice">Current price : {item.price}</p>
             <button type="button" onClick={bidHandler}>Place Bid!</button>
-            <p id="highestBidder">Highest bidder : {highestBidder}</p>
+            <p id="highestBidder">Highest bidder : {auction.highestBidder}</p>
             <ItemComponent {...item} />
         </div>
     )
@@ -18,7 +18,7 @@ const AuctionComponent = ({item, highestBidder}) => {
 
 AuctionComponent.propTypes = {
     item: PropTypes.object.isRequired,
-    highestBidder: PropTypes.string
+    auction: PropTypes.object
 }
 
 export default AuctionComponent;
