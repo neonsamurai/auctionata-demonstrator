@@ -2,6 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { Auctions } from '../imports/api/auction/auctionModel.js';
 import { Items } from '../imports/api/item/itemModel.js';
 
+/**
+ * @module server/fixtures
+ * Seeds demo data into the database if necessary.
+ */
+
 if(Auctions.find().count() === 0){
   console.log('Seeding test data...');
   const item = Items.insert({

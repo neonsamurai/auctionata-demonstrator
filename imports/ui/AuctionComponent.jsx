@@ -1,10 +1,21 @@
 import React, {PropTypes} from 'react';
 import ItemComponent from './ItemComponent.jsx';
-import BiddingComponent from './BiddingComponent.jsx'
+
+/**
+ * @module imports/ui/AuctionComponent
+ * Visual representation of an auction. It renders an Item component as child.
+ */
+
+/**
+ * The auction component. It contains a button which upon click will dispatch an RPC call to place a bid for the aution.
+ * @param {Object} item The props object of the item being sold
+ * @param {Object} auction The props object of the auction to display.
+ * @returns {XML}
+ */
 
 const AuctionComponent = ({item, auction}) => {
     const bidHandler = function () {
-        Meteor.call('bid.place', auction, Meteor.userId());
+        Meteor.call('bid.place', auction);
     }
     return (
         <div>

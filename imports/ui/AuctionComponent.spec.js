@@ -6,6 +6,14 @@ import AuctionComponent from './AuctionComponent.jsx';
 import ItemComponent from './ItemComponent.jsx';
 import Items from '../api/item/itemModel.js';
 
+/**
+ * @module imports/ui/AuctionComponent.spec
+ * Unit test module for the AuctionComponent module.
+ */
+
+/**
+ * Define a factory so we an easily produce Item objects.
+ */
 Factory.define('item', Items, {
   name: 'Pretty Watch',
   description: 'This is a shiny watch with lots of bling.',

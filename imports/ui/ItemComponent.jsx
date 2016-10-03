@@ -1,5 +1,15 @@
 import React, { PropTypes } from 'react';
 
+/**
+ * @module imports/ui/ItemComponent
+ * Visual representation of an auction. It renders an Item component as child.
+ */
+
+/**
+ * The Item component. It will be presented within an AuctionComponent.
+ * @param {Object} item The props object representing the auction Item.
+ * @returns {XML} ItemComponent
+ */
 const ItemComponent = (item) => {
     const url = () => '/pictures/' + item.picture;
     return (

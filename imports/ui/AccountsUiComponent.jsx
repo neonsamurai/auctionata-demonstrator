@@ -4,11 +4,10 @@ import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 
 /**
- * @classdesc This is a wrapper for the Accounts-ui widget which is a Blaze template. We
+ * This is a wrapper for the Accounts-ui widget which is a Blaze template. We
  * wrap it in a React Component so that we can use it as if it was a native
  * React component.
  * @module imports/ui/AccountsUI
- * @class
  */
 export default class AccountsUI extends Component {
     componentDidMount() {
