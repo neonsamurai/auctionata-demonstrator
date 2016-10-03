@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 
 const ItemComponent = (item) => {
     const url = () => '/pictures/' + item.picture;
-    console.log(url());
     return (
         <div>
             <h2 id="item-name">Item: {item.name}</h2>
