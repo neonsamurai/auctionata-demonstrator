@@ -4,7 +4,7 @@
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 3100",
-    "jsdoc": "jsdoc -c jsdoc.config.json -o ../docs"
+    "jsdoc": "jsdoc -c jsdoc.conf.json ."
   },
   "dependencies": {
     "bcrypt": "^0.8.7",

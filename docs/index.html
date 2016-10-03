@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Auctionata Demonstrator</h1><p>Small demonstrator based on a coding challenge provided by Auctionata. It should show my style of writing code and how
+I approach solving a given problem.</p>
+<h1>Demo</h1><p>There is a running demo at: </p>
+<p>You can log in with multiple browsers and different accounts to simulate true multi user environments.</p>
+<p>The 'place bid' button places a bid.
+Whoever places first is the highest bidder.
+The 'RESET BID' button resets the highest bidder to provide retestability.</p>
+<h1>Getting started (developers)</h1><p>If not already present on your system, you need to install the Meteor platform and then the project's dependencies.</p>
+<pre class="prettyprint source lang-bash"><code># for *nix systems
+$ curl https://install.meteor.com/ | sh
+$ cd app
+# install dependencies
+$ npm install
+# run the demo
+$ meteor</code></pre><h1>The task at hand</h1><pre class="prettyprint source lang-gherkin"><code>Feature: Processing an online auction.
+
+  As a potential buyer in an online auction
+  I want to be ableto bid on an item
+  So that I can participate in an auction
+
+  Background:
+    Given I am in the auction room
+
+  Scenario: Displaying information about the current item
+    Then I see the current item picture, description and name
+    And I see the current highest bid with a button to place a new bid
+
+  Scenario: Single user bidding on an item
+    When I place a bid on an item
+    And I am the only bidder
+    Then I am the highest bidder
+
+  Scenario: Multiple users bidding on an item - you are first
+    When I place a bid on an item
+    And I am not the only bidder
+    And my bid was placed first
+    Then I am the highest bidder
+
+  Scenario: Mulitple users bidding on an item - you are not first
+    When I place a bid on an item
+    And I am not the only bidder
+    And my bid was not placed first
+    Then I am not the highest bidder</code></pre><h1>Assesment of the Feature</h1><p>The given feature demands some interesting requirements:</p>
+<ul>
+<li>multiple users acting on the same item</li>
+<li>processing of user input in real time (or a best effort approximation of real time)</li>
+<li>notification of users / updating the user's view in real time</li>
+</ul>
+<h1>Choosing technology and rationale behind it</h1><p>Given the technical requirements and time constraints I opt for using the <a href="https://www.meteor.com">Meteor</a> platform.
+It provides great support for applications in demand of real time updates and reactive user interfaces, a solid 
+preconfigured build pipeline and free deployment options.</p>
+<p>As the defacto standard library for UIs is <a href="https://facebook.github.io/react/">React</a> I will use it along with the
+current ES2015 standard.</p>
+<h1>Project structure</h1><p>Meteor is a full stack platform, thus client and server can (and do) share code. The whole code, front end and back end
+live in the same repository.</p>
+<p>Client side modules are initialised from <code>client/main.js</code> and server side modules likewise from 
+<code>server/main.js</code>. All modules live in the <code>imports</code> directory.</p>
+<p>Tests are placed beside their modules and have the file extension <code>spec.js</code></p>
+<h1>Progression plan / what's not inside</h1><p>This is a bare bones full stack demonstrator. Many parts are missing that would be needed for a full size scalable
+application:</p>
+<ul>
+<li>Event sourcing system ie. Redux</li>
+<li>Routing ie. React-Router</li>
+<li>A proper test harness with unit / integration / end to end tests</li>
+<li>User management and authorization</li>
+<li>Auction / item management</li>
+<li>Payment system integration</li>
+<li>Proper deployment solution over multiple instances ie. Docker</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="api_auction_auctionMethods%250ADefines%2520Meteor%2520methods%2520related%2520to%2520the%2520auction%2520business%2520logic.module_.html">api/auction/auctionMethods
+Defines Meteor methods related to the auction business logic.</a></li><li><a href="client_main%250A%250AAssembles%2520all%2520the%2520necessary%2520imports%2520to%2520start%2520up%2520the%2520frontend.%2520This%2520includes%2520the%2520root%2520component%2520as%2520well%2520as%2520registering%250AMeteor%2520methods%2520from%2520the%2520api%2520packages.module_.html">client/main
+
+Assembles all the necessary imports to start up the frontend. This includes the root component as well as registering
+Meteor methods from the api packages.</a></li><li><a href="imports_api_auction_auctionModel%250A%250ADeclares%2520Auctions%2520collection.module_.html">imports/api/auction/auctionModel
+
+Declares Auctions collection.</a></li><li><a href="imports_api_item_itemModel%250A%250ADeclares%2520the%2520Items%2520collection.%2520A%2520representation%2520of%2520the%2520auction%2520item%2520which%2520is%2520going%2520to%2520be%2520sold.module_.html">imports/api/item/itemModel
+
+Declares the Items collection. A representation of the auction item which is going to be sold.</a></li><li><a href="imports_ui_AuctionComponent.spec%250AUnit%2520test%2520module%2520for%2520the%2520AuctionComponent%2520module.module_.html">imports/ui/AuctionComponent.spec
+Unit test module for the AuctionComponent module.</a></li><li><a href="imports_ui_AuctionComponent%250AVisual%2520representation%2520of%2520an%2520auction.%2520It%2520renders%2520an%2520Item%2520component%2520as%2520child.module_.html">imports/ui/AuctionComponent
+Visual representation of an auction. It renders an Item component as child.</a></li><li><a href="imports_ui_ItemComponent.spec%250AUnit%2520test%2520module%2520for%2520the%2520ItemComponent%2520module.module_.html">imports/ui/ItemComponent.spec
+Unit test module for the ItemComponent module.</a></li><li><a href="imports_ui_ItemComponent%250AVisual%2520representation%2520of%2520an%2520auction.%2520It%2520renders%2520an%2520Item%2520component%2520as%2520child.module_.html">imports/ui/ItemComponent
+Visual representation of an auction. It renders an Item component as child.</a></li><li><a href="module-imports_ui_AccountsUI.html">imports/ui/AccountsUI</a></li><li><a href="module-imports_ui_App.html">imports/ui/App</a></li><li><a href="server_fixtures%250ASeeds%2520demo%2520data%2520into%2520the%2520database%2520if%2520necessary.module_.html">server/fixtures
+Seeds demo data into the database if necessary.</a></li><li><a href="server_main%250AWires%2520up%2520all%2520the%2520necessary%2520imports%2520for%2520the%2520server%2520side.%2520This%2520includes%2520Mongo%2520collections%2520and%2520Meteor%2520methods%2520as%2520well%2520as%250Apublications.module_.html">server/main
+Wires up all the necessary imports for the server side. This includes Mongo collections and Meteor methods as well as
+publications.</a></li></ul><h3>Classes</h3><ul><li><a href="module-imports_ui_App-App.html">App</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Mon Oct 03 2016 12:18:14 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
