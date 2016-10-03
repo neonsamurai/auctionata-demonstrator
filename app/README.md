@@ -5,7 +5,7 @@ I approach solving a given problem.
 
 # Demo
 
-There is a running demo at: 
+There is a running demo at: https://auctionata-demonstrator.herokuapp.com/
 
 You can log in with multiple browsers and different accounts to simulate true multi user environments.
 
