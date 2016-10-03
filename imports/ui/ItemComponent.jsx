@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const ItemComponent = (item) => {
-    const url = () => '/public/pictures/' + item.picture;
+    const url = () => '/pictures/' + item.picture;
     console.log(url());
     return (
         <div>
