@@ -7,17 +7,23 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 class App extends Component {
     renderAuction() {
-        return <AuctionComponent item={this.props.item} highestBidder={this.props.auction.highestBidder}/>;
+        return <AuctionComponent {...this.props}/>;
     }
 
     renderLoading() {
         return <div>loading ...</div>;
     }
 
+    reset() {
+        console.log(this);
+        Meteor.call('bid.reset', this.auction, Meteor.userId);
+    }
+
     render() {
         return (
             <div>
                 <h1>Auctionata demonstrator</h1>
+                <button onClick={this.reset.bind(this.props)}> RESET BID </button>
                 <AccountsUiComponent />
                 {this.props.loading ? this.renderLoading() : this.renderAuction()}
             </div>
