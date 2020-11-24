@@ -7,7 +7,7 @@
     "jsdoc": "jsdoc -c jsdoc.conf.json ."
   },
   "dependencies": {
-    "bcrypt": "^0.8.7",
+    "bcrypt": "^5.0.0",
     "jsdoc": "^3.4.1",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.3.2",
